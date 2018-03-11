@@ -39,10 +39,13 @@ var connection = mysql.createConnection({
 
   // Create a new burger
   app.post('/create', function(req, res) {
-    connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger_name], function(err, result) {
-      if (err) {
-        res.redirect('/');
-      }
+    connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
+        console.log(req.body.burger);
+
+      // if (err) {
+      //   res.redirect('/');
+      //
+      // }
       //
       // // Send back the ID of the new movie
       // res.json({ id: result.insertId });
