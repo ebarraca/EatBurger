@@ -19,7 +19,9 @@ update burgers to list -->
       <p>
         {{this.id}}. {{this.burger_name}}
 
+        <form action="/api/burgers/{{this.id}}" method="POST">
         <button data-burgerid="{{this.id}}" class="">EAT IT</button>
+    </form>
       </p>
     </li>
   {{/each}}

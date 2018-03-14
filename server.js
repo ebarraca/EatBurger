@@ -1,13 +1,22 @@
+
+
 var express = require("express");
 var bodyParser = require ("body-parser");
 var exphbs = require("express-handlebars");
 var mysql = require ("mysql");
 var connection = require ("./config/connection.js")
+var router = require("./controllers/burgers_controller.js")
+var burger = require("./models/burger.js");
+
+
 
 var app = express();
+app.use(router);
+
 app.use(bodyParser.urlencoded({
     extended:false
 }))
+app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -15,17 +24,13 @@ app.set("view engine", "handlebars");
 var port = 3000;
 app.listen(port);
 
+
   // Use Handlebars to render the main index.html page with the burgers in it.
   app.get("/", function(req, res) {
     connection.query("SELECT * FROM burgers;", function(err, data) {
       if (err) throw err;
 
-      // Test it
-      // console.log('The solution is: ', data);
-
-      // Test it
-      // return res.send(data);
-
+      console.log(data);
       res.render("index", { burgers: data });
     });
   });
@@ -33,23 +38,29 @@ app.listen(port);
   // Create a new burger
   app.post('/', function(req, res) {
     connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
-        console.log(req.body.burger);
-          // Test it
-          // console.log('You sent, ' + req.body.task);
-
-          // Test it
-          // return res.send('You sent, ' + req.body.task);
+        console.log(req.body);
             res.redirect("/");
           // });
         });
-
-      // if (err) {
-      //   res.redirect('/');
-      //
-      // }
-      //
-      // // Send back the ID of the new movie
-      // res.json({ id: result.insertId });
-      // console.log({ id: result.insertId });
     });
-  // });
+
+    app.post("/api/burgers", function(req, res) {
+      burger.create(req.body.burger, function(err, result) {
+          if (err) throw err;
+        res.json({ id: result.insertId });
+      });
+    });
+
+    app.get("/api/burgers", function(req, res) {
+      burger.selectAll(function(err, result) {
+          console.log(result);
+          if (err) throw err;
+        res.json(result);
+      });
+    });
+
+    app.put("/api/burgers/:id", function(req, res) {
+      burger.update(req.body.burger, req.params.id, function(err, data) {
+          if (err) throw err;
+      });
+    });
