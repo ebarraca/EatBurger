@@ -14,15 +14,14 @@ var connection = require("../config/connection.js");
 //   // });
 // });
 
-router.post("/api/burgers", function(req, res) {
-  burger.create([
-    "burger", "deovoured"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function(result) {
-    // Send back the ID of the new quote
-    res.json({ id: result.insertId });
-  });
+router.post("/api/burgers", function(req, res){
+    burger.create(
+        ['burger_name'], [req.body.burger_name], function(result){
+        console.log(result);
+        // This sends back the result object of the new burger to the user
+       return res.json({post: result});
+       return res.redirect("/index");
+    });
 });
 
 router.put("/api/burger/:id", function(req, res) {

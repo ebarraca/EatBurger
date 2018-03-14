@@ -3,14 +3,14 @@ var orm = require('../config/orm.js');
 
 //Create the burger object
 var burger = {
-    selectAll: function(cb) {
+    selectAll: function(get) {
       orm.selectAll("burgers", function(res) {
-        cb(res);
+        get(res);
       });
     },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
-    orm.create("burgers", "burger_name", vals, function(res) {
+    orm.create("burgers", cols, vals, function(res) {
       cb(res);
     });
   },
