@@ -40,16 +40,15 @@ app.listen(port);
     connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
         console.log(req.body);
             res.redirect("/");
-          // });
         });
     });
 
-    app.post("/api/burgers", function(req, res) {
-      burger.create(req.body.burger, function(err, result) {
-          if (err) throw err;
-        res.json({ id: result.insertId });
-      });
-    });
+    // app.post("/api/burgers", function(req, res) {
+    //   burger.create(req.body.burger, function(err, result) {
+    //       if (err) throw err;
+    //     res.json({ id: result.insertId });
+    //   });
+    // });
 
     app.get("/api/burgers", function(req, res) {
       burger.selectAll(function(err, result) {
