@@ -11,21 +11,31 @@ update burgers to list -->
   </form>
 </div>
 
+<div>
 <h3>BURGERS TO TRY</h3>
 
 <ul>
   {{#each burgers}}
-    <li>
-      <p>
-        {{this.id}}. {{this.burger_name}}
+        <!-- {{this.id}}. {{this.burger_name}} -->
 
-        <form action="/api/burgers/{{this.id}}" method="POST">
-        <button data-burgerid="{{this.id}}" class="">EAT IT</button>
-    </form>
-      </p>
-    </li>
+        <!-- <form action="/api/burgers/{{this.id}}" method="POST"> -->
+        <!-- <button data-burgerid="{{this.id}}" class="">EAT IT</button> -->
+        {{> burger/burger-block devoured=this.devoured name=this.burger_name}}
+    <!-- </form> -->
   {{/each}}
 </ul>
+</div>
+
+
+<div>
+<h3>BURGERS EATEN</h3>
+
+<ul>
+  {{#each burgers}}
+        {{> burger/burger-eaten devoured=this.devoured name=this.burger_name}}
+  {{/each}}
+</ul>
+</div>
 
 <!-- //so now when you click on EAT IT it takes you to the right side. -->
 
