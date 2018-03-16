@@ -1,1 +1,7 @@
-burger_style.css
+body {
+    background-color: #addfe0;
+}
+
+p {
+    color: red;
+}

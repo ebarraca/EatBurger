@@ -16,7 +16,7 @@ app.use(router);
 app.use(bodyParser.urlencoded({
     extended:false
 }))
-app.use(express.static("public"));
+app.use(express.static("app/public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -59,7 +59,14 @@ app.listen(port);
     });
 
     app.put("/api/burgers/:id", function(req, res) {
-      burger.update(req.body.burger, req.params.id, function(err, data) {
-          if (err) throw err;
+        // console.log(req.body)
+
+      burger.update('devoured=1', 'id=' + req.params.id, function(err, data) {
+          if (err) {
+          throw err;
+
+          console.log('update error' )
+      }
+
       });
     });

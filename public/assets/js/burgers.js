@@ -3,29 +3,31 @@
 // <!-- //create an ajax that is a put and change devoured from 0 to 1 -->
 
 $(document).ready(function() {
-  $(".change-eat").on("click", function() {
-      // var burgerId = $(this).data("data-id");
-      // console.log(burgerId);
-      //
-      // $.ajax({
-      //     url: 'api/burger' +burgerId,
-      //     type: 'PUT',
-      //     success: function(data){
-      //         console.log("burger eaten")
-      //     }
-      // });
 
+  $(".change-eat").on("click", function(data) {
+      var burgerId = $(this).data("id");
+      console.log(burgerId);
+      console.log($(this).data);
 
-    var burgerId = $(this).data("data-id");
-    var newEat = $(this).data("data-neweat");
+      $.ajax({
+          url: 'api/burgers/' +burgerId,
+          type: 'PUT',
+          success: function(data){
+              console.log("burger eaten" + data)
+          }
+      });
 
+ console.log('this is working')
+    // var burgerId = $(this).data("data-id");
+    // var newEat = $(this).data("data-neweat");
+    //
     var newEatState = {
       devoured:false
     };
 
 
     // Send the PUT request.
-    $.ajax("/api/burgers/" + id, {
+    $.ajax("/api/burgers/" + burgerId, {
       type: "PUT",
       data: newEatState
     }).then(
@@ -57,7 +59,20 @@ $(document).ready(function() {
         location.reload();
       }
     );
+
+    $.ajax("/api/burgers/" + burgerId, {
+      type: "POST",
+      data: newEatState
+    }).then(
+      function(data) {
+        console.log("created new burger" + data);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+
   });
+
 
   // $(".delete-cat").on("click", function(event) {
   //   var id = $(this).data("id");
