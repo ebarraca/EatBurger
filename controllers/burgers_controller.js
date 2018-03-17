@@ -14,8 +14,8 @@ var connection = require("../config/connection.js");
 //   // });
 // });
 
-router.post("/api/burgers", function(req, res){
-    burger.create(
+router.post("/api/burger", function(req, res){
+    burger.insertOne(
         ['burger_name'], [req.body.burger_name], function(result){
         console.log(result);
         // This sends back the result object of the new burger to the user
@@ -27,9 +27,9 @@ router.post("/api/burgers", function(req, res){
 router.put("/api/burger/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
-
-  burger.update({
+  console.log("condition" + condition);
+console.log(req.body)
+  burger.updateOne({
     devoured: req.body.devoured
   }, condition, function(result) {
     if (result.changedRows == 0) {

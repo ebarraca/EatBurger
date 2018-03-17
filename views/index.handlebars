@@ -1,56 +1,44 @@
+<div class="container" style="background-color:#addfe0; max-height=100%">
+<br>
 
+<img src="/assets/img/logo.png" alt="eat-burger-logo" style="width:160px; display: block; margin-left: auto; margin-right: auto; margin-bottom:30px;" >
 
-<img src="/assets/img/logo.png" alt="eat-burger-logo" style="width:183px">
+<div class="burger-box" style="display: block; margin-left: auto; margin-right: auto; width: 50%; font-family: 'Montserrat', sans-serif; text-align: center">
+    <p>Add a burger you would like to try.</p>
+        <div class= "form-box">
+          <form action="/" method="POST">
+          	<textarea type="text" id="burgerInput" name="burger" style= "width: 300px; height: 60px; font-size: 13px; font-family: 'Montserrat',"></textarea> <br>
 
-
-<p>text to add burger here</p>
-<div>
-  <form action="/" method="POST">
-  	<textarea type="text" name="burger"></textarea>
-
-  	<button type="submit">ADD BURGER</button>
-  </form>
+          	<button type="submit" style = "background-color: #f05042; width: 130px; height; 100px; padding: 7px; font-family: 'Montserrat', sans-serif; color: white; font-size: 13px; letter-spacing: 1px; margin-top: 10px;">ADD BURGER</button>
+          </form>
+        </div>
 </div>
 
-<div>
-<h3>BURGERS TO TRY</h3>
+<div id="burgerToEat">
+<p style ="font-family: 'Montserrat', sans-serif; font-size: 14px;margin-bottom: 10px; margin-left: 40px;" >BURGERS TO EAT</p>
 
-<ul>
-  {{#each burgers}}
-        <!-- {{this.id}}. {{this.burger_name}} -->
+    <ul>
+      {{#each burgers}}
+            <!-- {{this.id}}. {{this.burger_name}} -->
 
-        <!-- <form action="/api/burgers/{{this.id}}" method="POST"> -->
-        <!-- <button data-burgerid="{{this.id}}" class="">EAT IT</button> -->
-        {{> burger/burger-block devoured=this.devoured name=this.burger_name}}
-    <!-- </form> -->
-  {{/each}}
-</ul>
+            <!-- <form action="/api/burgers/{{this.id}}" method="POST"> -->
+            <!-- <button data-burgerid="{{this.id}}" class="">EAT IT</button> -->
+            {{> burger/burger-block devoured=this.devoured name=this.burger_name}}
+        <!-- </form> -->
+      {{/each}}
+    </ul>
 </div>
 
 
+    <div class = "burgers-eaten" style="display: inline-block;" >
+        <p style ="font-family: 'Montserrat', sans-serif; font-size: 14px;margin-bottom: 10px; margin-left: 40px;">BURGERS EATEN</p>
+
+            <ul>
+              {{#each burgers}}
+                    {{> burger/burger-eaten devoured=this.devoured name=this.burger_name}}
+              {{/each}}
+            </ul>
+    </div>
+
+
 <div>
-<h3>BURGERS EATEN</h3>
-
-<ul>
-  {{#each burgers}}
-        {{> burger/burger-eaten devoured=this.devoured name=this.burger_name}}
-  {{/each}}
-</ul>
-</div>
-
-<!-- //so now when you click on EAT IT it takes you to the right side. -->
-
-
-
-
-
-
-<!-- //in this code hes updating/replacing movies that are in the already list. -->
-
-<!-- <h4>UPDATE BURGERS</h4>
-<form method = "POST" action="/update?_method=">
-<form id="updateburger" class="button-size">
-  <input type="text" name="id" placeholder="id">
-	<textarea type="text" name="burger" placeholder="name of burger"></textarea>
-	<button type="submit">UPDATE BURGER</button>
-</form> -->

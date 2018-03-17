@@ -41,7 +41,25 @@ function objToSql(ob) {
 // Object for all our SQL statement functions.
 var orm = {
 
-  create: function(table, cols, vals, cb) {
+    // An example of objColVals would be {name: panther, sleepy: true}
+    updateOne: function(table, objColVals, condition, cb) {
+      var queryString = "UPDATE " + table;
+      queryString += " SET ";
+      queryString += objColVals;
+      queryString += " WHERE ";
+      queryString += condition;
+
+      console.log(queryString);
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+
+        cb(result);
+      });
+    },
+
+  insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 console.log(cols);
     queryString += " (";
@@ -68,23 +86,7 @@ console.log(cols);
        onResult(err, result);
      })
    },
-  // An example of objColVals would be {name: panther, sleepy: true}
-  update: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
-    queryString += " SET ";
-    queryString += objColVals;
-    queryString += " WHERE ";
-    queryString += condition;
 
-    console.log(queryString);
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-  },
   // delete: function(table, condition, cb) {
   //   var queryString = "DELETE FROM " + table;
   //   queryString += " WHERE ";

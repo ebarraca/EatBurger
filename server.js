@@ -16,7 +16,7 @@ app.use(router);
 app.use(bodyParser.urlencoded({
     extended:false
 }))
-app.use(express.static("app/public"));
+app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -50,7 +50,7 @@ app.listen(port);
     //   });
     // });
 
-    app.get("/api/burgers", function(req, res) {
+    app.get("/api/burger", function(req, res) {
       burger.selectAll(function(err, result) {
           console.log(result);
           if (err) throw err;
@@ -58,10 +58,10 @@ app.listen(port);
       });
     });
 
-    app.put("/api/burgers/:id", function(req, res) {
+    app.put("/api/burger/:id", function(req, res) {
         // console.log(req.body)
 
-      burger.update('devoured=1', 'id=' + req.params.id, function(err, data) {
+      burger.updateOne('devoured=1', 'id=' + req.params.id, function(err, data) {
           if (err) {
           throw err;
 

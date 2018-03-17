@@ -10,5 +10,5 @@ CREATE TABLE burgers
 );
 
 INSERT INTO burgers (burger_name, devoured) VALUES ('If Looks Could Kale', false);
-INSERT INTO burgers (burger_name, devoured) VALUES ('Sweet Home Avocado', false);
+INSERT INTO burgers (burger_name, devoured) VALUES ('Sweet Home Avocado', true);
 INSERT INTO burgers (burger_name, devoured) VALUES ('Eggers Cant Be Cheesers', false);
