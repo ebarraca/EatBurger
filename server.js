@@ -14,7 +14,7 @@ var app = express();
 app.use(router);
 
 app.use(bodyParser.urlencoded({
-    extended:false
+    extended:true
 }))
 app.use(express.static("public"));
 
@@ -58,15 +58,15 @@ app.listen(port);
       });
     });
 
-    app.put("/api/burger/:id", function(req, res) {
-        // console.log(req.body)
+    // app.put("/api/burger/:id", function(req, res) {
+    //     // console.log(req.body)
 
-      burger.updateOne('devoured=1', 'id=' + req.params.id, function(err, data) {
-          if (err) {
-          throw err;
+    //   burger.updateOne('devoured=1', 'id=' + req.params.id, function(err, data) {
+    //       if (err) {
+    //       throw err;
 
-          console.log('update error' )
-      }
+    //       console.log('update error' )
+    //   }
 
-      });
-    });
+    //   });
+    // });

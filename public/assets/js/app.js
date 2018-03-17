@@ -29,7 +29,7 @@ $.ajax("/api/burgers", {
         event.preventDefault()
 
         var updateID = $(this).data('id');
-        var updatePath = "/api/burger/" + updateID;
+        var updatePath = "/api/burger/" + updateID + "/true";
         var updatedBurger = {
             id: updateID,
             devoured: true
