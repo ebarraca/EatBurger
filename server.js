@@ -11,17 +11,18 @@ var burger = require("./models/burger.js");
 
 
 var app = express();
-app.use(router);
+
 
 app.use(bodyParser.urlencoded({
     extended:true
 }))
+app.use(router);
 app.use(express.static("public"));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var port = 3000;
+var port = 4002;
 app.listen(port);
 
 
