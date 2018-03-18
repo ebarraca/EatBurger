@@ -1,23 +1,23 @@
 <!-- <div class="container" style="background-color:#addfe0; max-height=100%">
 <br> -->
 
-<img src="/assets/img/logo.png" alt="eat-burger-logo" style="width:160px; display: block; margin-left: auto; margin-right: auto; margin-bottom:30px;" >
+<img src="/assets/img/logo.png" alt="eat-burger-logo" >
 
-<div class="burger-box" style="display: block; margin-left: auto; margin-right: auto; width: 50%; font-family: 'Montserrat', sans-serif; text-align: center">
+<div class="burger-box"
     <p>Add a burger you would like to try.</p>
         <div class= "form-box">
           <form action="/" method="POST">
-          	<textarea type="text" id="burgerInput" name="burger" style= "width: 300px; height: 60px; font-size: 13px; font-family: 'Montserrat',"></textarea> <br>
+          	<textarea type="text" id="burgerInput" name="burger" ></textarea> <br>
 
-          	<button type="submit" style = "background-color: #f05042; width: 130px; height; 100px; padding: 7px; font-family: 'Montserrat', sans-serif; color: white; font-size: 13px; letter-spacing: 1px; margin-top: 10px;">ADD BURGER</button>
+          	<button type="submit">ADD BURGER</button>
           </form>
         </div>
 </div>
 
 <div id="burgerToEat">
-<p style ="font-family: 'Montserrat', sans-serif; font-size: 14px;margin-bottom: 10px; margin-left: 40px;" >BURGERS TO EAT</p>
+<p class = "burgers-to-eat">BURGERS TO EAT</p>
 
-    <ul>
+    <ol class ="each-burgers">
       {{#each burgers}}
             <!-- {{this.id}}. {{this.burger_name}} -->
 
@@ -26,12 +26,12 @@
             {{> burger/burger-block devoured=this.devoured name=this.burger_name}}
         <!-- </form> -->
       {{/each}}
-    </ul>
+  </ol>
 </div>
 
 
-    <div class = "burgers-eaten" style="display: inline-block;" >
-        <p style ="font-family: 'Montserrat', sans-serif; font-size: 14px;margin-bottom: 10px; margin-left: 40px;">BURGERS EATEN</p>
+    <div class = "burgers-eaten">
+        <p class= "burgers-eaten-list">BURGERS EATEN</p>
 
             <ul>
               {{#each burgers}}

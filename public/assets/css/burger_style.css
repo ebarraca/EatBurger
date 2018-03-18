@@ -2,6 +2,85 @@ body {
     background-color: #addfe0;
 }
 
+img {
+    width:160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:30px;
+}
+.burger-box {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+#burgerInput {
+    width: 300px;
+    height: 60px;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    background-color: #f05042;
+    width: 130px;
+    height: 40px;
+    padding: 7px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-top: 10px;"
+}
+
 p {
-    color: red;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.change-eat {
+    background-color: #f05042;
+    width: 60px;
+    height: 30px;
+    padding: 7px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    font-size: 10px;
+    margin-left: 10px;
+    letter-spacing: 1px;
+}
+
+.burgers-eaten {
+    display: inline-block;
+}
+
+.burgers-eaten-list {
+    font-family: 'Montserrat',
+    sans-serif; font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+.each-burgers{
+    background-color: white;
+    margin-left: 40px;
+}
+
+.burgers-to-eat {
+    margin-left: 40px;
+}
+
+ol {
+     width: 300px;
+     background-color: white;
+     font-family: 'Montserrat', sans-serif; font-size:12px;
+     margin-bottom: 10px;
+     vertical-align: center;
+     height: 50px;
+
 }
