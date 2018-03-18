@@ -34,7 +34,7 @@ button {
     color: white;
     font-size: 13px;
     letter-spacing: 1px;
-    margin-top: 10px;"
+    margin-top: 5px;
 }
 
 p {
@@ -57,6 +57,8 @@ p {
 
 .burgers-eaten {
     display: inline-block;
+    float: right;
+    vertical-align: top;
 }
 
 .burgers-eaten-list {
@@ -67,20 +69,37 @@ p {
 }
 
 .each-burgers{
+    width: 300px;
+    margin-bottom: 20px;
+    height: 40px;
     background-color: white;
+    font-family: 'montserrat', sans-serif; font-size:12px;
     margin-left: 40px;
+    padding: 0px;
 }
 
 .burgers-to-eat {
     margin-left: 40px;
 }
 
+#burgerToEat {
+    width: 400px;
+    margin: 0px;
+    padding: 0px;
+}
+
 ol {
-     width: 300px;
-     background-color: white;
-     font-family: 'Montserrat', sans-serif; font-size:12px;
-     margin-bottom: 10px;
-     vertical-align: center;
-     height: 50px;
+    padding-left:10px;
+}
+
+.bottom {
+    width: 300px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:12px;
+    margin-bottom: 10px;
+    height: 30px;
+    padding-left:10px;
+    padding-top: 10px;
 
 }
