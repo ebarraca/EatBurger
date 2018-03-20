@@ -1,5 +1,6 @@
 body {
     background-color: #addfe0;
+    max-height: 100%;
 }
 
 img {
@@ -39,7 +40,7 @@ button {
 
 p {
     font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
@@ -56,19 +57,25 @@ p {
 }
 
 .burgers-eaten {
-    display: inline-block;
     float: right;
     vertical-align: top;
+    margin-right: 40px;
 }
 
 .burgers-eaten-list {
     font-family: 'Montserrat',
-    sans-serif; font-size: 14px;
+    sans-serif; font-size: 16px;
     margin-bottom: 10px;
-    margin-left: 40px;
+    margin-left: 175px;
+
 }
 
-.each-burgers{
+#burgerInput {
+    padding-left: 20px;
+    padding-top: 40px;
+    font-size: 15px;
+}
+/* .each-burgers{
     width: 300px;
     margin-bottom: 20px;
     height: 40px;
@@ -76,30 +83,61 @@ p {
     font-family: 'montserrat', sans-serif; font-size:12px;
     margin-left: 40px;
     padding: 0px;
-}
+} */
 
 .burgers-to-eat {
-    margin-left: 40px;
+    margin-left: 52px;
+    font-style: bold;
 }
 
 #burgerToEat {
     width: 400px;
     margin: 0px;
     padding: 0px;
+    float: left;
 }
 
 ol {
-    padding-left:10px;
-}
-
-.bottom {
     width: 300px;
-    background-color: white;
     font-family: 'Montserrat', sans-serif;
-    font-size:12px;
+    font-size:14px;
     margin-bottom: 10px;
     height: 30px;
     padding-left:10px;
     padding-top: 10px;
+    list-style-position: inside;
+}
+
+.bottom {
+    width: 350px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    height: 30px;
+    padding-left:20px;
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+#burgers-eaten {
+    float: right;
+    vertical-align: top;
+    margin-right: 40px;
+}
+
+.devoured {
+    width: 350px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size:14px;
+    height: 30px;
+    padding-left:20px;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    margin-left: -60px;
+    margin-bottom: 10px;
+}
 
 }

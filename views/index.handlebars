@@ -3,7 +3,7 @@
 
 <img src="/assets/img/logo.png" alt="eat-burger-logo" >
 
-<div class="burger-box"
+<div class="burger-box">
     <p>Add a burger you would like to try.</p>
         <div class= "form-box">
           <form action="/" method="POST">
@@ -30,14 +30,14 @@
 </div>
 
 
-    <div class = "burgers-eaten">
+    <div id="burgers-eaten">
         <p class= "burgers-eaten-list">BURGERS EATEN</p>
 
-            <ul>
+            <ol id="devoured">
               {{#each burgers}}
                     {{> burger/burger-eaten devoured=this.devoured name=this.burger_name}}
               {{/each}}
-            </ul>
+          </ol>
     </div>
 
 
