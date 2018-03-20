@@ -22,7 +22,7 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var port = process.env.port || 4002;
+var port = process.env.PORT || 4002;
 app.listen(port);
 
 
